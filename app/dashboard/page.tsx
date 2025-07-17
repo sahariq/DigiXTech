@@ -3,7 +3,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
 import { 
   TrendingUp, 
@@ -252,7 +251,6 @@ export default function Dashboard() {
                 <span className="text-sm font-medium text-gray-600">Cost Savings</span>
                 <span className="text-sm font-bold text-green-600">+$24,500</span>
               </div>
-              <Progress value={78} className="h-2" />
               <p className="text-xs text-gray-500">78% improvement this quarter</p>
             </div>
             <div className="space-y-2">
@@ -260,7 +258,6 @@ export default function Dashboard() {
                 <span className="text-sm font-medium text-gray-600">Efficiency</span>
                 <span className="text-sm font-bold text-blue-600">87%</span>
               </div>
-              <Progress value={87} className="h-2" />
               <p className="text-xs text-gray-500">Above target performance</p>
             </div>
             <div className="space-y-2">
@@ -268,7 +265,6 @@ export default function Dashboard() {
                 <span className="text-sm font-medium text-gray-600">Forecast Accuracy</span>
                 <span className="text-sm font-bold text-purple-600">92%</span>
               </div>
-              <Progress value={92} className="h-2" />
               <p className="text-xs text-gray-500">Excellent prediction quality</p>
             </div>
           </div>

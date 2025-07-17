@@ -273,9 +273,6 @@ export default function LandingPage() {
               Request a Demo
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
-              Join the Beta
-            </Button>
           </div>
         </div>
       </section>

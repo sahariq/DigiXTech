@@ -15,6 +15,7 @@ import {
   Users,
   DollarSign
 } from 'lucide-react';
+import React, { useRef, useState } from 'react';
 
 export default function Dashboard() {
   const kpis = [
@@ -58,6 +59,42 @@ export default function Dashboard() {
     { action: 'Inventory data uploaded', module: 'Data Management', time: '1 day ago' },
     { action: 'Safety stock levels updated', module: 'Inventory', time: '2 days ago' }
   ];
+
+  const [salesFile, setSalesFile] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const [inventoryFile, setInventoryFile] = useState<File | null>(null);
+  const inventoryInputRef = useRef<HTMLInputElement>(null);
+
+  const [deliveryFile, setDeliveryFile] = useState<File | null>(null);
+  const deliveryInputRef = useRef<HTMLInputElement>(null);
+
+  const handleSalesFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setSalesFile(e.target.files[0]);
+    }
+  };
+  const handleButtonClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleInventoryFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setInventoryFile(e.target.files[0]);
+    }
+  };
+  const handleInventoryButtonClick = () => {
+    inventoryInputRef.current?.click();
+  };
+
+  const handleDeliveryFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setDeliveryFile(e.target.files[0]);
+    }
+  };
+  const handleDeliveryButtonClick = () => {
+    deliveryInputRef.current?.click();
+  };
 
   return (
     <div className="p-6 space-y-6">
@@ -118,9 +155,19 @@ export default function Dashboard() {
               <p className="text-sm text-gray-500 mb-4">
                 Upload your sales data (.csv format)
               </p>
-              <Button variant="outline" className="mb-4">
+              <input
+                type="file"
+                accept=".csv"
+                ref={fileInputRef}
+                className="hidden"
+                onChange={handleSalesFileChange}
+              />
+              <Button variant="outline" type="button" onClick={handleButtonClick}>
                 Choose File
               </Button>
+              {salesFile && (
+                <span className="ml-2 text-sm text-gray-600">{salesFile.name}</span>
+              )}
             </div>
             <div className="flex items-center justify-between">
               <div className="text-sm text-gray-500">
@@ -173,7 +220,7 @@ export default function Dashboard() {
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Safety Stock %
               </label>
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 mb-2">
                 <input
                   type="number"
                   defaultValue="15"
@@ -181,6 +228,19 @@ export default function Dashboard() {
                 />
                 <span className="text-sm text-gray-500">%</span>
               </div>
+              <input
+                type="file"
+                accept=".csv"
+                ref={inventoryInputRef}
+                className="hidden"
+                onChange={handleInventoryFileChange}
+              />
+              <Button variant="outline" type="button" onClick={handleInventoryButtonClick}>
+                Choose File
+              </Button>
+              {inventoryFile && (
+                <span className="ml-2 text-sm text-gray-600">{inventoryFile.name}</span>
+              )}
             </div>
             <Button className="w-full bg-green-600 hover:bg-green-700">
               Optimize
@@ -208,9 +268,19 @@ export default function Dashboard() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Upload Delivery Data
                 </label>
-                <Button variant="outline" className="w-full">
+                <input
+                  type="file"
+                  accept=".csv"
+                  ref={deliveryInputRef}
+                  className="hidden"
+                  onChange={handleDeliveryFileChange}
+                />
+                <Button variant="outline" type="button" onClick={handleDeliveryButtonClick}>
                   Choose File
                 </Button>
+                {deliveryFile && (
+                  <span className="ml-2 text-sm text-gray-600">{deliveryFile.name}</span>
+                )}
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">

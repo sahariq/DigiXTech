@@ -1,7 +1,5 @@
-import type { Config } from 'tailwindcss';
-
-const config: Config = {
-  darkMode: ['class'],
+const config = {
+  darkMode: 'class',
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -61,6 +59,9 @@ const config: Config = {
           '5': 'hsl(var(--chart-5))',
         },
       },
+      boxShadow: {
+        hover: '0 4px 12px rgba(0,0,0,0.06)',
+      },
       keyframes: {
         'accordion-down': {
           from: {
@@ -87,4 +88,4 @@ const config: Config = {
   },
   plugins: [require('tailwindcss-animate')],
 };
-export default config;
+module.exports = config;

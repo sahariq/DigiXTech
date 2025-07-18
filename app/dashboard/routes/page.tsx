@@ -112,17 +112,17 @@ export default function RoutesPage() {
   return (
     <div className="p-6 space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Route Planning</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Route Planning</h1>
           <p className="text-gray-600 mt-1">Optimize delivery routes for maximum efficiency</p>
         </div>
-        <div className="flex items-center space-x-2">
-          <Button variant="outline">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-2 w-full sm:w-auto mt-2 sm:mt-0">
+          <Button variant="outline" className="w-full sm:w-auto">
             <Download className="w-4 h-4 mr-2" />
             Export Routes
           </Button>
-          <Button className="bg-purple-600 hover:bg-purple-700">
+          <Button className="bg-purple-600 hover:bg-purple-700 w-full sm:w-auto">
             <Navigation className="w-4 h-4 mr-2" />
             Optimize Routes
           </Button>
@@ -130,7 +130,7 @@ export default function RoutesPage() {
       </div>
 
       {/* Metrics Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {routeMetrics.map((metric, index) => (
           <Card key={index} className="hover:shadow-lg transition-shadow duration-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -156,7 +156,7 @@ export default function RoutesPage() {
       </div>
 
       {/* Main Content */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Route Optimization */}
         <Card className="lg:col-span-2">
           <CardHeader>
@@ -170,14 +170,14 @@ export default function RoutesPage() {
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="upload" className="w-full">
-              <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="upload">Upload Data</TabsTrigger>
-                <TabsTrigger value="configure">Configure</TabsTrigger>
-                <TabsTrigger value="optimize">Optimize</TabsTrigger>
+              <TabsList className="flex flex-wrap gap-2 w-full mb-4">
+                <TabsTrigger value="upload" className="flex-1 sm:flex-auto truncate">Upload Data</TabsTrigger>
+                <TabsTrigger value="configure" className="flex-1 sm:flex-auto truncate">Configure</TabsTrigger>
+                <TabsTrigger value="optimize" className="flex-1 sm:flex-auto truncate">Optimize</TabsTrigger>
               </TabsList>
               
-              <TabsContent value="upload" className="space-y-4">
-                <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+              <TabsContent value="upload" className="mt-2 space-y-3 sm:space-y-4">
+                <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 sm:p-6 text-center max-w-full">
                   <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                   <p className="text-lg font-medium text-gray-700 mb-2">Upload Delivery Data</p>
                   <p className="text-sm text-gray-500 mb-4">
@@ -200,8 +200,8 @@ export default function RoutesPage() {
                 </div>
               </TabsContent>
               
-              <TabsContent value="configure" className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <TabsContent value="configure" className="mt-2 space-y-3 sm:space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Max Tour Time (hours)
@@ -268,35 +268,26 @@ export default function RoutesPage() {
                 </Button>
               </TabsContent>
               
-              <TabsContent value="optimize" className="space-y-4">
-                <div className="space-y-4">
-                  <div className="p-4 bg-purple-50 rounded-lg">
-                    <h3 className="font-medium text-purple-900 mb-2">Optimization Progress</h3>
-                    <Progress value={85} className="mb-2" />
-                    <p className="text-sm text-purple-700">Processing 156 delivery points...</p>
+              <TabsContent value="optimize" className="mt-2 space-y-3 sm:space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
+                  <div className="text-center p-4 bg-blue-50 rounded-lg">
+                    <p className="text-2xl font-bold text-blue-600">12</p>
+                    <p className="text-sm text-gray-600">Optimized Routes</p>
                   </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="text-center p-4 bg-blue-50 rounded-lg">
-                      <p className="text-2xl font-bold text-blue-600">12</p>
-                      <p className="text-sm text-gray-600">Optimized Routes</p>
-                    </div>
-                    <div className="text-center p-4 bg-green-50 rounded-lg">
-                      <p className="text-2xl font-bold text-green-600">-12%</p>
-                      <p className="text-sm text-gray-600">Distance Saved</p>
-                    </div>
-                    <div className="text-center p-4 bg-orange-50 rounded-lg">
-                      <p className="text-2xl font-bold text-orange-600">$2,140</p>
-                      <p className="text-sm text-gray-600">Cost Savings</p>
-                    </div>
+                  <div className="text-center p-4 bg-green-50 rounded-lg">
+                    <p className="text-2xl font-bold text-green-600">-12%</p>
+                    <p className="text-sm text-gray-600">Distance Saved</p>
                   </div>
-
-                  <div className="h-64 bg-gray-50 rounded-lg flex items-center justify-center">
-                    <div className="text-center">
-                      <Map className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                      <p className="text-gray-500">Optimized route map</p>
-                      <p className="text-sm text-gray-400">Interactive map will appear here</p>
-                    </div>
+                  <div className="text-center p-4 bg-orange-50 rounded-lg">
+                    <p className="text-2xl font-bold text-orange-600">$2,140</p>
+                    <p className="text-sm text-gray-600">Cost Savings</p>
+                  </div>
+                </div>
+                <div className="h-64 bg-gray-50 rounded-lg flex items-center justify-center">
+                  <div className="text-center">
+                    <Map className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                    <p className="text-gray-500">Optimized route map</p>
+                    <p className="text-sm text-gray-400">Interactive map will appear here</p>
                   </div>
                 </div>
               </TabsContent>
@@ -316,7 +307,7 @@ export default function RoutesPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {activeRoutes.map((route, index) => (
                 <div key={index} className="p-3 bg-gray-50 rounded-lg">
                   <div className="flex items-center justify-between mb-2">
@@ -362,66 +353,64 @@ export default function RoutesPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {optimizationResults.map((result, index) => (
-                <div key={index} className="p-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg">
-                  <h3 className="font-medium text-gray-900 mb-3">{result.metric}</h3>
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-600">Before:</span>
-                      <span className="font-medium">{result.before}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-600">After:</span>
-                      <span className="font-medium text-green-600">{result.after}</span>
-                    </div>
-                    <div className="flex justify-between items-center pt-2 border-t">
-                      <Badge variant="secondary" className="bg-green-100 text-green-800">
-                        {result.improvement} improvement
-                      </Badge>
-                      <span className="text-sm font-medium text-green-600">{result.savings}</span>
-                    </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-6">
+            {optimizationResults.map((result, index) => (
+              <div key={index} className="p-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg">
+                <h3 className="font-medium text-gray-900 mb-3">{result.metric}</h3>
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">Before:</span>
+                    <span className="font-medium">{result.before}</span>
                   </div>
-                </div>
-              ))}
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <h3 className="font-medium text-gray-900">Route Efficiency by Vehicle</h3>
-                <div className="space-y-3">
-                  {activeRoutes.map((route, index) => (
-                    <div key={index} className="flex items-center justify-between">
-                      <span className="text-sm text-gray-600">{route.vehicle}</span>
-                      <div className="flex items-center space-x-2">
-                        <Progress value={route.efficiency} className="w-20 h-2" />
-                        <span className="text-sm font-medium">{route.efficiency}%</span>
-                      </div>
-                    </div>
-                  ))}
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">After:</span>
+                    <span className="font-medium text-green-600">{result.after}</span>
+                  </div>
+                  <div className="flex justify-between items-center pt-2 border-t">
+                    <Badge variant="secondary" className="bg-green-100 text-green-800">
+                      {result.improvement} improvement
+                    </Badge>
+                    <span className="text-sm font-medium text-green-600">{result.savings}</span>
+                  </div>
                 </div>
               </div>
-              
-              <div className="space-y-4">
-                <h3 className="font-medium text-gray-900">Daily Performance</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center p-3 bg-blue-50 rounded-lg">
-                    <p className="text-lg font-bold text-blue-600">45</p>
-                    <p className="text-xs text-gray-600">Deliveries Today</p>
+            ))}
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <h3 className="font-medium text-gray-900">Route Efficiency by Vehicle</h3>
+              <div className="space-y-3">
+                {activeRoutes.map((route, index) => (
+                  <div key={index} className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">{route.vehicle}</span>
+                    <div className="flex items-center space-x-2">
+                      <Progress value={route.efficiency} className="w-20 h-2" />
+                      <span className="text-sm font-medium">{route.efficiency}%</span>
+                    </div>
                   </div>
-                  <div className="text-center p-3 bg-green-50 rounded-lg">
-                    <p className="text-lg font-bold text-green-600">92%</p>
-                    <p className="text-xs text-gray-600">On-time Rate</p>
-                  </div>
-                  <div className="text-center p-3 bg-purple-50 rounded-lg">
-                    <p className="text-lg font-bold text-purple-600">347km</p>
-                    <p className="text-xs text-gray-600">Total Distance</p>
-                  </div>
-                  <div className="text-center p-3 bg-orange-50 rounded-lg">
-                    <p className="text-lg font-bold text-orange-600">$180</p>
-                    <p className="text-xs text-gray-600">Fuel Cost</p>
-                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="space-y-4">
+              <h3 className="font-medium text-gray-900">Daily Performance</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="text-center p-3 bg-blue-50 rounded-lg">
+                  <p className="text-lg font-bold text-blue-600">45</p>
+                  <p className="text-xs text-gray-600">Deliveries Today</p>
+                </div>
+                <div className="text-center p-3 bg-green-50 rounded-lg">
+                  <p className="text-lg font-bold text-green-600">92%</p>
+                  <p className="text-xs text-gray-600">On-time Rate</p>
+                </div>
+                <div className="text-center p-3 bg-purple-50 rounded-lg">
+                  <p className="text-lg font-bold text-purple-600">347km</p>
+                  <p className="text-xs text-gray-600">Total Distance</p>
+                </div>
+                <div className="text-center p-3 bg-orange-50 rounded-lg">
+                  <p className="text-lg font-bold text-orange-600">$180</p>
+                  <p className="text-xs text-gray-600">Fuel Cost</p>
                 </div>
               </div>
             </div>

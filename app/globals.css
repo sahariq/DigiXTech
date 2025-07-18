@@ -82,3 +82,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+html, body {
+  overscroll-behavior: none;
+}
+
+@media (max-width: 475px) {
+  h1 { @apply text-2xl; }
+  h2 { @apply text-xl; }
+}
+
+.caption {
+  @apply break-words hyphens-auto;
+}

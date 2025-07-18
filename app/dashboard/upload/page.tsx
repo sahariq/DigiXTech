@@ -228,14 +228,14 @@ export default function UploadPage() {
         <CardContent>
           <div className="space-y-4">
             {recentUploads.map((upload, index) => (
-              <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                <div className="flex items-center space-x-4">
+              <div key={index} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-4 bg-gray-50 rounded-lg">
+                <div className="flex items-center gap-3 min-w-0">
                   <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
                     <FileText className="w-5 h-5 text-blue-600" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">{upload.filename}</p>
-                    <div className="flex items-center space-x-2 mt-1">
+                    <p className="font-medium text-gray-900 truncate max-w-[140px] sm:max-w-none">{upload.filename}</p>
+                    <div className="flex items-center gap-2 mt-1">
                       <Badge variant="outline" className="text-xs">
                         {upload.type}
                       </Badge>
@@ -245,10 +245,9 @@ export default function UploadPage() {
                     </div>
                   </div>
                 </div>
-                
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center gap-1 sm:gap-2">
                   <div className="text-right">
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center gap-2">
                       {getStatusIcon(upload.status)}
                       <Badge variant="secondary" className={getStatusColor(upload.status)}>
                         {upload.status}
@@ -258,8 +257,7 @@ export default function UploadPage() {
                       {upload.records} records
                     </p>
                   </div>
-                  
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center gap-1 sm:gap-2">
                     <Button variant="ghost" size="sm">
                       <Download className="w-4 h-4" />
                     </Button>

@@ -92,15 +92,15 @@ export default function Dashboard() {
   return (
     <div className="p-6 space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Dashboard</h1>
           <p className="text-gray-600 mt-1">Welcome back! Your optimization control panel.</p>
         </div>
       </div>
 
       {/* KPI Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
         {kpis.map((kpi, index) => (
           <Card key={index} className="hover:shadow-lg transition-shadow duration-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -126,7 +126,7 @@ export default function Dashboard() {
       </div>
 
       {/* Main Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Quick Actions */}
         <Card className="lg:col-span-2">
           <CardHeader>
@@ -136,7 +136,7 @@ export default function Dashboard() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
               {quickActions.map((action, index) => (
                 <Link key={index} href={action.href} passHref legacyBehavior>
                   <Card className="hover:shadow-md transition-all duration-200 cursor-pointer group">
@@ -167,7 +167,7 @@ export default function Dashboard() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {recentActivities.map((activity, index) => (
                 <div key={index} className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
@@ -192,7 +192,7 @@ export default function Dashboard() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-6">
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium text-gray-600">Cost Savings</span>

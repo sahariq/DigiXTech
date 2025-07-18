@@ -139,8 +139,8 @@ export default function LandingPage() {
               </div>
               <span className="text-xl font-bold text-gray-900">Digi-X-Tech</span>
             </div>
-            <Link href="/dashboard">
-              <Button variant="outline" className="hidden sm:flex">
+            <Link href="/dashboard" className="ml-2">
+              <Button variant="outline" size="sm" className="px-3 py-1 h-9 text-sm">
                 Dashboard
               </Button>
             </Link>

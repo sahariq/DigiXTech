@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { 
-  LayoutDashboard, 
-  TrendingUp, 
-  Package, 
-  Map, 
-  Upload, 
-  Settings, 
+import {
+  LayoutDashboard,
+  TrendingUp,
+  Package,
+  Map,
+  Upload,
+  Settings,
   Brain,
   Menu,
   Home,
-  LogOut
+  LogOut,
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -29,11 +29,7 @@ const navigation = [
   { name: 'Settings', href: '/dashboard/settings', icon: Settings },
 ];
 
-export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
 
@@ -56,8 +52,8 @@ export default function DashboardLayout({
                 href={item.href}
                 className={`flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   isActive
-                    ? 'bg-blue-50 text-blue-700'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    ? 'relative bg-blue-50 text-blue-700 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-blue-600'
+                    : 'text-gray-700 hover:bg-gray-50'
                 }`}
                 onClick={() => setMobileOpen(false)}
               >
@@ -76,7 +72,10 @@ export default function DashboardLayout({
             Back to Home
           </Button>
         </Link>
-        <Button variant="ghost" className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50">
+        <Button
+          variant="ghost"
+          className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50"
+        >
           <LogOut className="w-4 h-4 mr-2" />
           Logout
         </Button>
@@ -86,17 +85,21 @@ export default function DashboardLayout({
 
   return (
     <div className="flex h-screen bg-gray-50">
-      {/* Desktop Sidebar */}
+      {/* desktop sidebar */}
       <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
         <div className="flex-1 flex flex-col min-h-0 bg-white border-r border-gray-200">
           <Sidebar />
         </div>
       </div>
 
-      {/* Mobile Sidebar */}
+      {/* mobile sidebar */}
       <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
         <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" className="md:hidden fixed top-4 left-4 z-50">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden fixed top-4 left-4 z-50"
+          >
             <Menu className="w-5 h-5" />
           </Button>
         </SheetTrigger>
@@ -105,9 +108,9 @@ export default function DashboardLayout({
         </SheetContent>
       </Sheet>
 
-      {/* Main Content */}
+      {/* main area */}
       <div className="flex-1 md:ml-64 overflow-hidden">
-        <main className="h-full overflow-y-auto">
+        <main className="h-full overflow-y-auto w-full max-w-[100vw] overflow-x-hidden pt-16 md:pt-0">
           {children}
         </main>
       </div>

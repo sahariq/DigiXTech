@@ -84,17 +84,17 @@ export default function InventoryPage() {
   return (
     <div className="p-6 space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Inventory Optimization</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Inventory Optimization</h1>
           <p className="text-gray-600 mt-1">Optimize stock levels and reduce carrying costs</p>
         </div>
-        <div className="flex items-center space-x-2">
-          <Button variant="outline">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-2 w-full sm:w-auto mt-2 sm:mt-0">
+          <Button variant="outline" className="w-full sm:w-auto">
             <Download className="w-4 h-4 mr-2" />
             Export Report
           </Button>
-          <Button className="bg-green-600 hover:bg-green-700">
+          <Button className="bg-green-600 hover:bg-green-700 w-full sm:w-auto">
             <Settings className="w-4 h-4 mr-2" />
             Run Optimization
           </Button>
@@ -102,7 +102,7 @@ export default function InventoryPage() {
       </div>
 
       {/* Metrics Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {inventoryMetrics.map((metric, index) => (
           <Card key={index} className="hover:shadow-lg transition-shadow duration-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -128,7 +128,7 @@ export default function InventoryPage() {
       </div>
 
       {/* Main Content */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Optimization Controls */}
         <Card className="lg:col-span-2">
           <CardHeader>
@@ -142,14 +142,14 @@ export default function InventoryPage() {
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="configure" className="w-full">
-              <TabsList className="grid w-full grid-cols-3">
+              <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3">
                 <TabsTrigger value="configure">Configure</TabsTrigger>
                 <TabsTrigger value="analyze">Analyze</TabsTrigger>
                 <TabsTrigger value="results">Results</TabsTrigger>
               </TabsList>
               
-              <TabsContent value="configure" className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <TabsContent value="configure" className="space-y-3 sm:space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Safety Stock %
@@ -202,73 +202,69 @@ export default function InventoryPage() {
                 </Button>
               </TabsContent>
               
-              <TabsContent value="analyze" className="space-y-4">
-                <div className="space-y-4">
+              <TabsContent value="analyze" className="space-y-3 sm:space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                   <div className="p-4 bg-blue-50 rounded-lg">
                     <h3 className="font-medium text-blue-900 mb-2">Analysis Progress</h3>
                     <Progress value={78} className="mb-2" />
                     <p className="text-sm text-blue-700">Analyzing 1,247 products...</p>
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="p-4 bg-gray-50 rounded-lg">
-                      <h4 className="font-medium text-gray-900 mb-2">Current Analysis</h4>
-                      <ul className="space-y-1 text-sm text-gray-600">
-                        <li>✓ Demand patterns identified</li>
-                        <li>✓ Lead time variations calculated</li>
-                        <li>⏳ Safety stock optimization</li>
-                        <li>⏳ Reorder point calculation</li>
-                      </ul>
-                    </div>
-                    <div className="p-4 bg-gray-50 rounded-lg">
-                      <h4 className="font-medium text-gray-900 mb-2">Preliminary Findings</h4>
-                      <ul className="space-y-1 text-sm text-gray-600">
-                        <li>• 23% overstock identified</li>
-                        <li>• 8% items at risk of stockout</li>
-                        <li>• $127K potential savings</li>
-                        <li>• 15% improvement possible</li>
-                      </ul>
-                    </div>
+                  <div className="p-4 bg-gray-50 rounded-lg">
+                    <h4 className="font-medium text-gray-900 mb-2">Current Analysis</h4>
+                    <ul className="space-y-1 text-sm text-gray-600">
+                      <li>✓ Demand patterns identified</li>
+                      <li>✓ Lead time variations calculated</li>
+                      <li>⏳ Safety stock optimization</li>
+                      <li>⏳ Reorder point calculation</li>
+                    </ul>
+                  </div>
+                  <div className="p-4 bg-gray-50 rounded-lg">
+                    <h4 className="font-medium text-gray-900 mb-2">Preliminary Findings</h4>
+                    <ul className="space-y-1 text-sm text-gray-600">
+                      <li>• 23% overstock identified</li>
+                      <li>• 8% items at risk of stockout</li>
+                      <li>• $127K potential savings</li>
+                      <li>• 15% improvement possible</li>
+                    </ul>
                   </div>
                 </div>
               </TabsContent>
               
-              <TabsContent value="results" className="space-y-4">
-                <div className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="text-center p-4 bg-green-50 rounded-lg">
-                      <p className="text-2xl font-bold text-green-600">$127K</p>
-                      <p className="text-sm text-gray-600">Potential Savings</p>
-                    </div>
-                    <div className="text-center p-4 bg-blue-50 rounded-lg">
-                      <p className="text-2xl font-bold text-blue-600">342</p>
-                      <p className="text-sm text-gray-600">Items to Optimize</p>
-                    </div>
-                    <div className="text-center p-4 bg-purple-50 rounded-lg">
-                      <p className="text-2xl font-bold text-purple-600">15%</p>
-                      <p className="text-sm text-gray-600">Efficiency Gain</p>
-                    </div>
+              <TabsContent value="results" className="space-y-3 sm:space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
+                  <div className="text-center p-4 bg-green-50 rounded-lg">
+                    <p className="text-2xl font-bold text-green-600">$127K</p>
+                    <p className="text-sm text-gray-600">Potential Savings</p>
                   </div>
-                  
-                  <div className="bg-gray-50 rounded-lg p-4">
-                    <h4 className="font-medium text-gray-900 mb-3">Optimization Recommendations</h4>
-                    <div className="space-y-2">
-                      {optimizationSuggestions.map((suggestion, index) => (
-                        <div key={index} className="flex items-center justify-between p-2 bg-white rounded">
-                          <div className="flex items-center space-x-3">
-                            <div className={`w-3 h-3 rounded-full ${
-                              suggestion.type === 'reduce' ? 'bg-red-500' : 'bg-green-500'
-                            }`}></div>
-                            <span className="text-sm font-medium">{suggestion.product}</span>
-                          </div>
-                          <div className="text-right">
-                            <div className="text-sm">
-                              {suggestion.current} → {suggestion.suggested}
-                            </div>
-                            <div className="text-xs text-green-600">{suggestion.savings} saved</div>
-                          </div>
+                  <div className="text-center p-4 bg-blue-50 rounded-lg">
+                    <p className="text-2xl font-bold text-blue-600">342</p>
+                    <p className="text-sm text-gray-600">Items to Optimize</p>
+                  </div>
+                  <div className="text-center p-4 bg-purple-50 rounded-lg">
+                    <p className="text-2xl font-bold text-purple-600">15%</p>
+                    <p className="text-sm text-gray-600">Efficiency Gain</p>
+                  </div>
+                </div>
+                
+                <div className="bg-gray-50 rounded-lg p-3 sm:p-4">
+                  <h4 className="font-medium text-gray-900 mb-3">Optimization Recommendations</h4>
+                  <div className="space-y-2">
+                    {optimizationSuggestions.map((suggestion, index) => (
+                      <div key={index} className="flex items-center justify-between p-2 bg-white rounded">
+                        <div className="flex items-center space-x-3">
+                          <div className={`w-3 h-3 rounded-full ${
+                            suggestion.type === 'reduce' ? 'bg-red-500' : 'bg-green-500'
+                          }`}></div>
+                          <span className="text-sm font-medium">{suggestion.product}</span>
                         </div>
-                      ))}
-                    </div>
+                        <div className="text-right">
+                          <div className="text-sm">
+                            {suggestion.current} → {suggestion.suggested}
+                          </div>
+                          <div className="text-xs text-green-600">{suggestion.savings} saved</div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </TabsContent>
@@ -288,7 +284,7 @@ export default function InventoryPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-3">
+            <div className="space-y-3 sm:space-y-4">
               {criticalItems.map((item, index) => (
                 <div key={index} className="p-3 bg-gray-50 rounded-lg">
                   <div className="flex items-center justify-between mb-2">
@@ -337,7 +333,7 @@ export default function InventoryPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6">
             <div className="space-y-4">
               <h3 className="font-medium text-gray-900">Stock Distribution</h3>
               <div className="space-y-3">

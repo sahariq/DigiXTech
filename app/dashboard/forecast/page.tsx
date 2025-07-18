@@ -60,17 +60,29 @@ export default function ForecastPage() {
   return (
     <div className="p-6 space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900">Demand Forecasting</h1>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+        <div className="w-full sm:w-auto">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Demand Forecasting</h1>
           <p className="text-gray-600 mt-1">AI-powered demand predictions for your products</p>
+          {/* Move buttons here for mobile, but only show on mobile */}
+          <div className="flex flex-col gap-2 w-full mt-4 sm:hidden">
+            <Button variant="outline" className="w-full">
+              <Download className="w-4 h-4 mr-2" />
+              Export Results
+            </Button>
+            <Button className="bg-blue-600 hover:bg-blue-700 w-full">
+              <Upload className="w-4 h-4 mr-2" />
+              New Forecast
+            </Button>
+          </div>
         </div>
-        <div className="flex items-center space-x-2">
-          <Button variant="outline">
+        {/* Desktop buttons */}
+        <div className="hidden sm:flex flex-row gap-2 w-auto mt-0">
+          <Button variant="outline" className="w-auto">
             <Download className="w-4 h-4 mr-2" />
             Export Results
           </Button>
-          <Button className="bg-blue-600 hover:bg-blue-700">
+          <Button className="bg-blue-600 hover:bg-blue-700 w-auto">
             <Upload className="w-4 h-4 mr-2" />
             New Forecast
           </Button>
@@ -78,7 +90,7 @@ export default function ForecastPage() {
       </div>
 
       {/* Metrics Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {forecastMetrics.map((metric, index) => (
           <Card key={index} className="hover:shadow-lg transition-shadow duration-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -100,7 +112,7 @@ export default function ForecastPage() {
       </div>
 
       {/* Main Content */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Forecast Setup */}
         <Card className="lg:col-span-2">
           <CardHeader>
@@ -114,14 +126,14 @@ export default function ForecastPage() {
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="upload" className="w-full">
-              <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="upload">Upload Data</TabsTrigger>
-                <TabsTrigger value="configure">Configure</TabsTrigger>
-                <TabsTrigger value="results">Results</TabsTrigger>
+              <TabsList className="flex flex-wrap gap-2 w-full mb-4">
+                <TabsTrigger value="upload" className="flex-1 sm:flex-auto truncate">Upload Data</TabsTrigger>
+                <TabsTrigger value="configure" className="flex-1 sm:flex-auto truncate">Configure</TabsTrigger>
+                <TabsTrigger value="results" className="flex-1 sm:flex-auto truncate">Results</TabsTrigger>
               </TabsList>
               
-              <TabsContent value="upload" className="space-y-4">
-                <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+              <TabsContent value="upload" className="mt-2 space-y-3 sm:space-y-4">
+                <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 sm:p-6 text-center max-w-full">
                   <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                   <p className="text-lg font-medium text-gray-700 mb-2">Upload Sales Data</p>
                   <p className="text-sm text-gray-500 mb-4">
@@ -145,8 +157,8 @@ export default function ForecastPage() {
                 </div>
               </TabsContent>
               
-              <TabsContent value="configure" className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <TabsContent value="configure" className="mt-2 space-y-3 sm:space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Forecast Period
@@ -197,7 +209,7 @@ export default function ForecastPage() {
                 </Button>
               </TabsContent>
               
-              <TabsContent value="results" className="space-y-4">
+              <TabsContent value="results" className="mt-2 space-y-3 sm:space-y-4">
                 <div className="h-64 bg-gray-50 rounded-lg flex items-center justify-center">
                   <div className="text-center">
                     <BarChart3 className="w-16 h-16 text-gray-400 mx-auto mb-4" />
@@ -205,7 +217,7 @@ export default function ForecastPage() {
                     <p className="text-sm text-gray-400">Run analysis to see predictions</p>
                   </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
                   <div className="text-center p-4 bg-blue-50 rounded-lg">
                     <p className="text-2xl font-bold text-blue-600">1,247</p>
                     <p className="text-sm text-gray-600">Products Analyzed</p>
@@ -233,7 +245,7 @@ export default function ForecastPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {recentForecasts.map((forecast, index) => (
                 <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                   <div className="flex-1">
@@ -272,7 +284,7 @@ export default function ForecastPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6">
             <div className="space-y-4">
               <h3 className="font-medium text-gray-900">Accuracy by Product Category</h3>
               <div className="space-y-3">

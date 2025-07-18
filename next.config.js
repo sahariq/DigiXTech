@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: 'export',
+    // output: 'export', // Removed to use default build mode
     eslint: {
       ignoreDuringBuilds: true,
     },

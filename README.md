@@ -2,11 +2,6 @@
 
 A modern **Next.js 15** starter template powered by TypeScript, Tailwind CSS, and the [shadcn/ui](https://ui.shadcn.com) + Radix component system.  
 Built for rapid dashboards, SaaS products, and any project that needs accessible UI primitives, dark‑mode theming, and zero‑config deployment to Vercel.
-
-<p align="center">
-  <img alt="screenshot of DigiXTech homepage" src="docs/screenshot.png" width="800">
-</p>
-
 ---
 
 ## ✨ Features

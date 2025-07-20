@@ -114,6 +114,14 @@ export default function LandingPage() {
               <Button variant="ghost" size="icon" className="h-9 w-9">
                 <User className="h-4 w-4" />
               </Button>
+              {/* Dashboard icon for small screens */}
+              <Link href="/dashboard">
+                <Button variant="outline" size="icon" className="flex sm:hidden h-9 w-9">
+                  <BarChart3 className="h-5 w-5" />
+                  <span className="sr-only">Dashboard</span>
+                </Button>
+              </Link>
+              {/* Existing dashboard button for larger screens */}
               <Link href="/dashboard">
                 <Button variant="outline" className="hidden sm:flex">
                   Dashboard

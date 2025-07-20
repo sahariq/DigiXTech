@@ -25,7 +25,7 @@ export function HowItWorksSection({ steps }: HowItWorksSectionProps) {
                 <step.icon className="w-8 h-8 text-white" />
               </div>
               <div className="text-xs sm:text-sm text-blue-600 font-semibold mb-2">Step {index + 1}</div>
-              <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">{step.title}</h3>
+              <h3 className="text-base sm:text-lg font-semibold text-gray-200 mb-2">{step.title}</h3>
               <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm">{step.description}</p>
             </div>
           ))}

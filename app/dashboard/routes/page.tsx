@@ -102,7 +102,7 @@ export default function RoutesPage() {
   ];
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 mt-14 md:mt-0">
       {/* Header */}
       <RoutesHeader title="Route Planning" subtitle="Optimize delivery routes for maximum efficiency" />
       {/* Main Content */}

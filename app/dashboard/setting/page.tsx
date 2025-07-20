@@ -54,7 +54,7 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 mt-14 md:mt-0">
       {/* Header */}
       <SettingsHeader title="Settings" subtitle="Manage your account settings and preferences" />
       {/* Settings Grid */}

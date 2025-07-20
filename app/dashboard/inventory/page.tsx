@@ -76,7 +76,7 @@ export default function InventoryPage() {
   } as const;
 
   return (
-    <div className="p-6 space-y-6 max-w-6xl mx-auto">
+    <div className="p-6 space-y-6 max-w-6xl mx-auto mt-14 md:mt-0">
       {/* Header */}
       <InventoryHeader title="Inventory Optimization" subtitle="Optimize stock levels and reduce carrying costs" />
       {/* Optimization Card */}

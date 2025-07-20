@@ -105,7 +105,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="container max-w-screen-xl mx-auto p-4 md:p-6 space-y-6">
+    <div className="container max-w-screen-xl mx-auto p-4 md:p-6 space-y-6 mt-14 md:mt-0">
       {/* Header */}
       <DashboardHeader title="Dashboard" subtitle="Welcome back! Your optimization control panel." />
       {/* KPI Cards */}

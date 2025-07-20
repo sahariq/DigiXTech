@@ -143,7 +143,7 @@ export default function UploadPage() {
   }
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 mt-14 md:mt-0">
       {/* Header */}
       <UploadHeader title="Upload Data" subtitle="Upload your CSV files for sales, inventory, and delivery data" />
       {/* Upload Types */}

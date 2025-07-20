@@ -32,7 +32,7 @@ export default function ForecastPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 p-6 sm:p-8 space-y-8 max-w-7xl mx-auto">
+    <div className="min-h-screen bg-white dark:bg-gray-900 p-6 sm:p-8 space-y-8 max-w-7xl mx-auto mt-14 sm:mt-0">
       {/* Header */}
       <ForecastHeader title="Demand Forecasting" subtitle="AI‑powered demand predictions for your products" />
       {/* Main Content */}

@@ -56,9 +56,10 @@ export function UploadTypeCard({ type, index, selectedFiles, setSelectedFiles, i
             type="file"
             ref={el => fileInputRefs.current[index] = el}
             className="hidden"
-            onChange={e => {
-              if (e.target.files && e.target.files[0]) {
-                setSelectedFiles(prev => ({ ...prev, [index]: e.target.files[0].name }));
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              const file = e.target.files?.[0];
+              if (file) {
+                setSelectedFiles(prev => ({ ...prev, [index]: file.name }));
               }
             }}
           />

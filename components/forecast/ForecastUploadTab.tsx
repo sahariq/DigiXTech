@@ -24,9 +24,8 @@ export function ForecastUploadTab({ selectedFile, setSelectedFile, fileInputRef 
         ref={fileInputRef}
         className="hidden"
         onChange={e => {
-          if (e.target.files && e.target.files[0]) {
-            setSelectedFile(e.target.files[0].name);
-          }
+          const file = e.target.files?.[0];
+          if (file) setSelectedFile(file.name);
         }}
       />
       <Button

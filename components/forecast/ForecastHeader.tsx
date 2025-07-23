@@ -2,11 +2,6 @@ import React from "react";
 import { User } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
-interface ForecastHeaderProps {
-  title: string;
-  subtitle: string;
-}
-
 /**
  * ForecastHeader – page heading for forecast views.
  *
@@ -19,7 +14,7 @@ interface ForecastHeaderProps {
  * • Absolutely no top whitespace: we set `pt-0` (padding‑top zero) so the
  *   header hugs the very top edge on *all* viewports.
  */
-export function ForecastHeader({ title, subtitle }: ForecastHeaderProps) {
+export function ForecastHeader() {
   return (
     <header className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-700">
       {/* pt-0 removes any space above the header */}
@@ -32,16 +27,6 @@ export function ForecastHeader({ title, subtitle }: ForecastHeaderProps) {
             <div className="w-8 h-8 bg-gray-200 dark:bg-slate-700 rounded-full flex items-center justify-center">
               <User className="w-4 h-4 text-gray-600 dark:text-gray-300" />
             </div>
-          </div>
-
-          {/* Text block – below icons on mobile, left side on desktop */}
-          <div className="order-2 lg:order-1 min-w-0">
-            <h1 className="truncate text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white m-0">
-              {title}
-            </h1>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 m-0">
-              {subtitle}
-            </p>
           </div>
         </div>
       </div>

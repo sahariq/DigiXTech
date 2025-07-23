@@ -152,9 +152,6 @@ export default function DashboardLayout({
       {/* Main content */}
       <div className="flex-1 md:ml-64 overflow-hidden">
         <main className="h-full overflow-y-auto scroll-smooth focus:outline-none relative">
-          <div className="absolute top-0 right-0 z-40 w-full flex justify-end pointer-events-none">
-            {/* Removed user info and ThemeToggle from here, now in DashboardHeader */}
-          </div>
           <div>
             {children}
           </div>

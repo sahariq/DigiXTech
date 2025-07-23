@@ -30,7 +30,7 @@ export function HeroSection({ cursor }: HeroSectionProps) {
           </Badge>
         </motion.div>
         <motion.h1
-          className="text-6xl md:text-8xl font-bold text-gray-900 dark:text-white mb-8 leading-tight"
+          className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-8 leading-tight"
           variants={{ hidden: { opacity: 0, y: 32 }, visible: { opacity: 1, y: 0 } }}
           transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
         >

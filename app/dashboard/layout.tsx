@@ -24,6 +24,7 @@ import {
   LogOut,
   User,
 } from 'lucide-react';
+import TopBar from '@/components/ui/TopBar';
 
 /**
  * Centralised navigation definition so active‑state colour can be shared
@@ -52,13 +53,11 @@ export default function DashboardLayout({
   const Sidebar = ({ className = '' }: { className?: string }) => (
     <div className={`flex flex-col h-full ${className}`.trim()}>
       {/* Brand / logo */}
-      <div className="flex items-center space-x-3 px-6 py-6">
-        <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center">
-          <Brain className="w-7 h-7 text-white" />
+      <div className="flex items-center space-x-2 px-6 py-6">
+        <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
+          <Brain className="w-5 h-5 text-white" />
         </div>
-        <span className="text-2xl font-extrabold text-gray-900 dark:text-white tracking-wide">
-          Digi‑X‑Tech
-        </span>
+        <span className="text-xl font-bold text-gray-900 dark:text-white">Digi-X-Tech</span>
       </div>
 
       <Separator />
@@ -152,8 +151,13 @@ export default function DashboardLayout({
 
       {/* Main content */}
       <div className="flex-1 md:ml-64 overflow-hidden">
-        <main className="h-full overflow-y-auto scroll-smooth focus:outline-none">
-          {children}
+        <main className="h-full overflow-y-auto scroll-smooth focus:outline-none relative">
+          <div className="absolute top-0 right-0 z-40 w-full flex justify-end pointer-events-none">
+            {/* Removed user info and ThemeToggle from here, now in DashboardHeader */}
+          </div>
+          <div>
+            {children}
+          </div>
         </main>
       </div>
     </div>

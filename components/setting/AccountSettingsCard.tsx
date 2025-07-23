@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 export function AccountSettingsCard() {
   return (
-    <Card className="bg-white dark:bg-slate-800">
+    <Card className="bg-white dark:bg-slate-800 hover:shadow-lg dark:hover:shadow-slate-900/30 transition-shadow duration-200">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-gray-900 dark:text-white">
           <span>Account Settings</span>

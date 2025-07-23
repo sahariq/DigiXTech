@@ -4,7 +4,7 @@ import { Progress } from '@/components/ui/progress';
 
 export function InventoryAnalyticsCard() {
   return (
-    <Card className="bg-white dark:bg-slate-900/60 backdrop-blur supports-[backdrop-filter]:bg-white/30 dark:supports-[backdrop-filter]:bg-slate-900/40">
+    <Card className="bg-white dark:bg-slate-800 hover:shadow-lg dark:hover:shadow-slate-900/30 transition-shadow duration-200">
       <CardHeader>
         <CardTitle className="text-gray-900 dark:text-white">Inventory Analytics</CardTitle>
         <CardDescription className="text-gray-600 dark:text-gray-400">

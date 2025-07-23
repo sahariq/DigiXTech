@@ -1,28 +1,49 @@
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Download, Navigation } from 'lucide-react';
+import React from "react";
+import { User } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 interface RoutesHeaderProps {
   title: string;
   subtitle: string;
 }
 
+/**
+ * RoutesHeader – page heading for routes views.
+ *
+ * Behaviour
+ * ─────────────────────────────────────────────────────────────
+ * • 📱  Mobile (< 1024 px): avatar + theme toggle on first line, title/subtitle
+ *   stack below.
+ * • 🖥️  Desktop (≥ 1024 px): title/subtitle on the left and controls on the
+ *   right, all in a single row.
+ * • Absolutely no top whitespace: we set `pt-0` (padding‑top zero) so the
+ *   header hugs the very top edge on *all* viewports.
+ */
 export function RoutesHeader({ title, subtitle }: RoutesHeaderProps) {
   return (
-    <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-      <div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">{title}</h1>
-        <p className="text-gray-600 dark:text-gray-300 mt-1">{subtitle}</p>
-      </div>
-      <div className="flex items-center gap-2">
-        <Button variant="outline" className="dark:border-slate-600">
-          <Download className="w-4 h-4 mr-2" />
-          Export Routes
-        </Button>
-        <Button className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600">
-          <Navigation className="w-4 h-4 mr-2" />
-          Optimize Routes
-        </Button>
+    <header className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-700">
+      {/* pt-0 removes any space above the header */}
+      <div className="pt-0 pb-3 px-4 sm:px-6">
+        {/* Wrapper switches from column to row at lg */}
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-y-2 lg:gap-y-0">
+          {/* Controls block – icons always right on desktop, first on mobile */}
+          <div className="order-1 lg:order-2 flex items-center space-x-3 shrink-0">
+            <div className="w-8 h-8 bg-gray-200 dark:bg-slate-700 rounded-full flex items-center justify-center">
+              <User className="w-4 h-4 text-gray-600 dark:text-gray-300" />
+            </div>
+            <ThemeToggle />
+          </div>
+
+          {/* Text block – below icons on mobile, left side on desktop */}
+          <div className="order-2 lg:order-1 min-w-0">
+            <h1 className="truncate text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white m-0">
+              {title}
+            </h1>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 m-0">
+              {subtitle}
+            </p>
+          </div>
+        </div>
       </div>
     </header>
   );

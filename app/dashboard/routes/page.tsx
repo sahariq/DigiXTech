@@ -102,44 +102,42 @@ export default function RoutesPage() {
   ];
 
   return (
-    <div className="p-6 space-y-6 mt-14 md:mt-0">
+    <div className="min-h-screen bg-white dark:bg-gray-900 p-6 sm:p-8 space-y-6 max-w-6xl mx-auto">
       {/* Header */}
       <RoutesHeader title="Route Planning" subtitle="Optimize delivery routes for maximum efficiency" />
-      {/* Main Content */}
-      <div className="mx-auto w-full max-w-4xl">
-        <Card className="bg-white dark:bg-slate-800">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-gray-900 dark:text-white">
-              <Map className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-              <span>Route Optimization</span>
-            </CardTitle>
-            <CardDescription className="dark:text-gray-400">
-              Upload delivery data and optimize routes
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Tabs defaultValue="upload" className="w-full">
-              <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="upload">Upload Data</TabsTrigger>
-                <TabsTrigger value="configure">Configure</TabsTrigger>
-                <TabsTrigger value="optimize">Optimize</TabsTrigger>
-              </TabsList>
-              {/* Upload */}
-              <TabsContent value="upload">
-                <RoutesUploadTab selectedFile={selectedFile} setSelectedFile={setSelectedFile} fileInputRef={fileInputRef} />
-              </TabsContent>
-              {/* Configure */}
-              <TabsContent value="configure">
-                <RoutesConfigureTab />
-              </TabsContent>
-              {/* Optimize */}
-              <TabsContent value="optimize">
-                <RoutesOptimizeTab />
-              </TabsContent>
-            </Tabs>
-          </CardContent>
-        </Card>
-      </div>
+      {/* Route Optimization Card */}
+      <Card className="bg-white dark:bg-slate-800">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-gray-900 dark:text-white">
+            <Map className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+            <span>Route Optimization</span>
+          </CardTitle>
+          <CardDescription className="dark:text-gray-400">
+            Upload delivery data and optimize routes
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Tabs defaultValue="upload" className="w-full">
+            <TabsList className="grid w-full grid-cols-3">
+              <TabsTrigger value="upload">Upload Data</TabsTrigger>
+              <TabsTrigger value="configure">Configure</TabsTrigger>
+              <TabsTrigger value="optimize">Optimize</TabsTrigger>
+            </TabsList>
+            {/* Upload */}
+            <TabsContent value="upload">
+              <RoutesUploadTab selectedFile={selectedFile} setSelectedFile={setSelectedFile} fileInputRef={fileInputRef} />
+            </TabsContent>
+            {/* Configure */}
+            <TabsContent value="configure">
+              <RoutesConfigureTab />
+            </TabsContent>
+            {/* Optimize */}
+            <TabsContent value="optimize">
+              <RoutesOptimizeTab />
+            </TabsContent>
+          </Tabs>
+        </CardContent>
+      </Card>
       {/* Optimization Results */}
       <RoutesOptimizationResults optimizationResults={optimizationResults} activeRoutes={activeRoutes} />
     </div>

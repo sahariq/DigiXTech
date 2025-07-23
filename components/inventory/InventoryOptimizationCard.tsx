@@ -17,7 +17,7 @@ interface InventoryOptimizationCardProps {
 
 export function InventoryOptimizationCard({ optimizationSuggestions }: InventoryOptimizationCardProps) {
   return (
-    <Card className="bg-white dark:bg-slate-900/60 backdrop-blur supports-[backdrop-filter]:bg-white/30 dark:supports-[backdrop-filter]:bg-slate-900/40">
+    <Card className="bg-white dark:bg-slate-800 hover:shadow-lg dark:hover:shadow-slate-900/30 transition-shadow duration-200">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-gray-900 dark:text-white">
           <Package className="w-5 h-5 text-blue-600 dark:text-blue-400" /> Inventory Optimization
@@ -176,6 +176,10 @@ export function InventoryOptimizationCard({ optimizationSuggestions }: Inventory
                 ))}
               </div>
             </div>
+            {/* Export Report Button */}
+            <Button className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 text-white mt-4">
+              Export Report
+            </Button>
           </TabsContent>
         </Tabs>
       </CardContent>

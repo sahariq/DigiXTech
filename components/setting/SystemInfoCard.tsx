@@ -3,7 +3,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 
 export function SystemInfoCard() {
   return (
-    <Card className="bg-white dark:bg-slate-800">
+    <Card className="bg-white dark:bg-slate-800 hover:shadow-lg dark:hover:shadow-slate-900/30 transition-shadow duration-200">
       <CardHeader>
         <CardTitle className="text-gray-900 dark:text-white">System Information</CardTitle>
         <CardDescription className="text-gray-600 dark:text-gray-300">

@@ -15,7 +15,7 @@ interface ApiKeyManagementCardProps {
 
 export function ApiKeyManagementCard({ apiKey, apiKeyVisible, setApiKeyVisible, handleCopyApiKey, handleRegenerateKey }: ApiKeyManagementCardProps) {
   return (
-    <Card className="bg-white dark:bg-slate-800">
+    <Card className="bg-white dark:bg-slate-800 hover:shadow-lg dark:hover:shadow-slate-900/30 transition-shadow duration-200">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-gray-900 dark:text-white">
           <Key className="w-5 h-5 text-blue-600 dark:text-blue-400" />

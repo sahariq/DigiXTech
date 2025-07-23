@@ -16,7 +16,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
  */
 export function ForecastHeader() {
   return (
-    <header className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-700">
+    <header className="bg-white dark:bg-slate-900">
       {/* pt-0 removes any space above the header */}
       <div className="pt-0 pb-3 px-4 sm:px-6 flex justify-end">
         <div className="flex items-center space-x-3 shrink-0">
@@ -26,6 +26,7 @@ export function ForecastHeader() {
           </div>
         </div>
       </div>
+      <div className="bg-border h-[1px] w-full" />
     </header>
   );
 }

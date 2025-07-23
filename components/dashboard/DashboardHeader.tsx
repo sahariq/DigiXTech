@@ -10,7 +10,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
  */
 export function DashboardHeader() {
   return (
-    <header className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-700">
+    <header className="bg-white dark:bg-slate-900">
       <div className="pt-0 pb-3 px-4 sm:px-6 flex justify-end">
         <div className="flex items-center space-x-3 shrink-0">
           <ThemeToggle />
@@ -19,6 +19,7 @@ export function DashboardHeader() {
           </div>
         </div>
       </div>
+      <div className="bg-border h-[1px] w-full" />
     </header>
   );
 }

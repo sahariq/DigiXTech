@@ -26,12 +26,12 @@ export function InventoryAnalyticsCard() {
                   key={dist.label}
                   className="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20"
                 >
-                  <span className="text-sm text-gray-600 dark:text-gray-300">
+                  <span className="text-sm text-gray-600 dark:text-white">
                     {dist.label}
                   </span>
                   <div className="flex items-center gap-2">
                     <Progress value={dist.value} className="w-20 h-2" />
-                    <span className="text-3xl font-bold text-blue-600 dark:text-blue-400">
+                    <span className="text-3xl font-bold text-blue-600 dark:text-white">
                       {dist.value}%
                     </span>
                   </div>
@@ -53,10 +53,10 @@ export function InventoryAnalyticsCard() {
                   key={metric.label}
                   className="text-center p-3 rounded-lg bg-blue-50 dark:bg-blue-900/20"
                 >
-                  <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                  <p className="text-2xl font-bold text-blue-600 dark:text-white">
                     {metric.value}
                   </p>
-                  <p className="text-xs text-gray-600 dark:text-gray-300">
+                  <p className="text-xs text-gray-600 dark:text-white">
                     {metric.label}
                   </p>
                 </div>

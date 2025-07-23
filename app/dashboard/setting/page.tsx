@@ -55,7 +55,16 @@ export default function SettingsPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 p-6 sm:p-8 space-y-6 max-w-6xl mx-auto">
-      <SettingsHeader title="Settings" subtitle="Manage your account settings and preferences" />
+      <SettingsHeader />
+      {/* Title and subtitle in body */}
+      <div className="mb-2">
+        <h1 className="truncate text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white m-0">
+          Settings
+        </h1>
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 m-0">
+          Manage your account settings and preferences
+        </p>
+      </div>
 
       {/* Account Settings */}
       <div className="mx-auto w-full max-w-4xl">

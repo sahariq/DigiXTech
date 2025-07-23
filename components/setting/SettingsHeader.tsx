@@ -28,10 +28,10 @@ export function SettingsHeader({ title, subtitle }: SettingsHeaderProps) {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-y-2 lg:gap-y-0">
           {/* Controls block – icons always right on desktop, first on mobile */}
           <div className="order-1 lg:order-2 flex items-center space-x-3 shrink-0">
+            <ThemeToggle />
             <div className="w-8 h-8 bg-gray-200 dark:bg-slate-700 rounded-full flex items-center justify-center">
               <User className="w-4 h-4 text-gray-600 dark:text-gray-300" />
             </div>
-            <ThemeToggle />
           </div>
 
           {/* Text block – below icons on mobile, left side on desktop */}

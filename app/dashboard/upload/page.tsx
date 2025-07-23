@@ -145,7 +145,16 @@ export default function UploadPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 p-6 sm:p-8 space-y-6 max-w-6xl mx-auto">
       {/* Header */}
-      <UploadHeader title="Upload Data" subtitle="Upload your CSV files for sales, inventory, and delivery data" />
+      <UploadHeader />
+      {/* Title and subtitle in body */}
+      <div className="mb-2">
+        <h1 className="truncate text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white m-0">
+          Upload Data
+        </h1>
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 m-0">
+          Upload your CSV files for sales, inventory, and delivery data
+        </p>
+      </div>
       {/* Upload Types */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {uploadTypes.map((type, index) => (

@@ -107,7 +107,16 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 p-6 sm:p-8 space-y-6 max-w-6xl mx-auto">
       {/* Header */}
-      <DashboardHeader title="Dashboard" subtitle="Welcome back! Your optimization control panel." />
+      <DashboardHeader />
+      {/* Title and subtitle in body */}
+      <div className="mb-2">
+        <h1 className="truncate text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white m-0">
+          Dashboard
+        </h1>
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 m-0">
+          Welcome back! Your optimization control panel.
+        </p>
+      </div>
       {/* KPI Cards */}
       <KpiGrid kpis={kpis} />
       {/* Main Content Grid */}

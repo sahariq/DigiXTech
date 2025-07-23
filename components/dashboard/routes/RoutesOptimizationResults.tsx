@@ -93,9 +93,7 @@ export function RoutesOptimizationResults({ optimizationResults, activeRoutes }:
                     </span>
                     <div className="flex items-center gap-2">
                       <Progress value={route.efficiency} className="w-20 h-2" />
-                      <span className="text-3xl font-bold text-blue-600 dark:text-blue-400">
-                        {route.efficiency}%
-                      </span>
+                      <span className="text-2xl font-bold text-blue-600 dark:text-white">{route.efficiency}%</span>
                     </div>
                   </div>
                 ))}
@@ -113,12 +111,10 @@ export function RoutesOptimizationResults({ optimizationResults, activeRoutes }:
                 ].map(({ label, value }) => (
                   <div
                     key={label}
-                    className="text-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg"
+                    className="text-center p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20"
                   >
-                    <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-                      {value}
-                    </p>
-                    <p className="text-xs text-gray-600 dark:text-gray-300">{label}</p>
+                    <p className="text-2xl font-bold text-blue-600 dark:text-white">{value}</p>
+                    <p className="text-xs text-gray-600 dark:text-white">{label}</p>
                   </div>
                 ))}
               </div>

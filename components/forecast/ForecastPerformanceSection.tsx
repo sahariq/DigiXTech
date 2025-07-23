@@ -31,7 +31,7 @@ export function ForecastPerformanceSection() {
                   className="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20"
                 >
                   <span className="text-sm text-gray-600 dark:text-gray-300">{label}</span>
-                  <span className="text-3xl font-bold text-blue-600 dark:text-blue-400">{value}%</span>
+                  <span className="text-3xl font-bold text-blue-600 dark:text-white">{value}%</span>
                 </div>
               ))}
             </div>
@@ -50,9 +50,9 @@ export function ForecastPerformanceSection() {
                   key={label}
                   className="text-center p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20"
                 >
-                  <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">{value}</p>
-                  <p className="text-xs text-gray-600 dark:text-gray-300">{label}</p>
-                  <p className="text-xs text-gray-400 dark:text-gray-500">{sub}</p>
+                  <p className="text-2xl font-bold text-blue-600 dark:text-white">{value}</p>
+                  <p className="text-xs text-gray-600 dark:text-white">{label}</p>
+                  <p className="text-xs text-gray-400 dark:text-gray-200">{sub}</p>
                 </div>
               ))}
             </div>

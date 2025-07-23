@@ -34,7 +34,16 @@ export default function ForecastPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 p-6 sm:p-8 space-y-6 max-w-6xl mx-auto">
       {/* Header */}
-      <ForecastHeader title="Demand Forecasting" subtitle="AI‑powered demand predictions for your products" />
+      <ForecastHeader />
+      {/* Title and subtitle in body */}
+      <div className="mb-2">
+        <h1 className="truncate text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white m-0">
+          Demand Forecasting
+        </h1>
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 m-0">
+          AI‑powered demand predictions for your products
+        </p>
+      </div>
       {/* Forecast Setup */}
       <Card className="w-full bg-white dark:bg-slate-800">
         <CardHeader>

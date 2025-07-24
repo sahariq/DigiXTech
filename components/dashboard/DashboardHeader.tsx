@@ -1,6 +1,7 @@
 import React from "react";
 import { User } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { Button } from '@/components/ui/button';
 
 export function DashboardHeader() {
   return (
@@ -8,9 +9,9 @@ export function DashboardHeader() {
       <div className="pt-0 pb-3 px-4 sm:px-6 flex justify-end">
         <div className="flex items-center space-x-3 shrink-0 -mt-2">
           <ThemeToggle />
-          <div className="w-8 h-8 bg-gray-200 dark:bg-slate-700 rounded-full flex items-center justify-center">
-            <User className="w-4 h-4 text-gray-600 dark:text-gray-300" />
-          </div>
+          <Button variant="ghost" size="icon" className="h-9 w-9">
+            <User className="w-4 h-4" />
+          </Button>
         </div>
       </div>
     </header>

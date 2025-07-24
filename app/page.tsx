@@ -103,17 +103,13 @@ export default function LandingPage() {
       <header className="border-b bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 pl-1">
               <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
                 <Brain className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-gray-900 dark:text-white">Digi-X-Tech</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <ThemeToggle />
-              <Button variant="ghost" size="icon" className="h-9 w-9">
-                <User className="h-4 w-4" />
-              </Button>
+            <div className="flex items-center space-x-3 shrink-0 -mt-2 py-2">
               {/* Dashboard icon for small screens */}
               <Link href="/dashboard">
                 <Button variant="outline" size="icon" className="flex sm:hidden h-9 w-9">
@@ -127,6 +123,10 @@ export default function LandingPage() {
                   Dashboard
                 </Button>
               </Link>
+              <ThemeToggle />
+              <Button variant="ghost" size="icon" className="h-9 w-9">
+                <User className="h-4 w-4" />
+              </Button>
             </div>
           </div>
         </div>

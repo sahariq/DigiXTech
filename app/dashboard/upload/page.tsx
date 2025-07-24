@@ -144,8 +144,6 @@ export default function UploadPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 p-6 sm:p-8 space-y-6 max-w-6xl mx-auto">
-      {/* Header */}
-      <UploadHeader />
       {/* Title and subtitle in body */}
       <div className="mb-2">
         <h1 className="truncate text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white m-0">

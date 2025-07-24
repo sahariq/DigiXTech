@@ -25,6 +25,7 @@ import {
   User,
 } from 'lucide-react';
 import TopBar from '@/components/ui/TopBar';
+import { DashboardHeader } from '@/components/dashboard/DashboardHeader';
 
 /**
  * Centralised navigation definition so active‑state colour can be shared
@@ -60,8 +61,6 @@ export default function DashboardLayout({
         <span className="text-xl font-bold text-gray-900 dark:text-white">Digi-X-Tech</span>
       </div>
 
-      <Separator />
-
       {/* Navigation */}
       <ScrollArea className="flex-1 px-3 py-4">
         <nav className="space-y-2">
@@ -85,8 +84,6 @@ export default function DashboardLayout({
           })}
         </nav>
       </ScrollArea>
-
-      <Separator />
 
       {/* Footer / user controls */}
       <div className="p-4 space-y-2">
@@ -151,6 +148,10 @@ export default function DashboardLayout({
 
       {/* Main content */}
       <div className="flex-1 md:ml-64 overflow-hidden">
+        {/* Sticky header always visible */}
+        <div className="flex items-center justify-end h-20 px-6 md:ml-0 mt-2" style={{minHeight: '80px'}}>
+          <DashboardHeader />
+        </div>
         <main className="h-full overflow-y-auto scroll-smooth focus:outline-none relative">
           <div>
             {children}

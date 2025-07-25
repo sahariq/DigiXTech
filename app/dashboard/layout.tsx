@@ -10,7 +10,7 @@ import {
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { ThemeToggle } from '@/components/ThemeToggle';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import {
   LayoutDashboard,
   TrendingUp,
@@ -62,7 +62,7 @@ export default function DashboardLayout({
       </div>
 
       {/* Navigation */}
-      <ScrollArea className="flex-1 px-3 py-4">
+      <div className="flex-1 px-3 py-4 overflow-y-auto">
         <nav className="space-y-2">
           {navigation.map(({ name, href, icon: Icon }) => {
             const isActive = pathname === href;
@@ -83,7 +83,7 @@ export default function DashboardLayout({
             );
           })}
         </nav>
-      </ScrollArea>
+      </div>
 
       {/* Footer / user controls */}
       <div className="p-4 space-y-2">
@@ -147,12 +147,12 @@ export default function DashboardLayout({
       </Sheet>
 
       {/* Main content */}
-      <div className="flex-1 md:ml-64 overflow-hidden">
+      <div className="flex-1 md:ml-64 flex flex-col">
         {/* Sticky header always visible */}
-        <div className="flex items-center justify-end h-20 px-6 md:ml-0 mt-2" style={{minHeight: '80px'}}>
+        <div className="sticky top-0 z-40 flex items-center justify-end h-20 px-6 md:ml-0 bg-gray-50 dark:bg-slate-900" style={{minHeight: '80px'}}>
           <DashboardHeader />
         </div>
-        <main className="h-full overflow-y-auto scroll-smooth focus:outline-none relative">
+        <main className="flex-1 min-h-0 overflow-y-auto scroll-smooth focus:outline-none relative">
           <div>
             {children}
           </div>

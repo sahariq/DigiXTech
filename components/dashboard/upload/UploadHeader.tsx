@@ -1,6 +1,6 @@
 import React from "react";
 import { User } from "lucide-react";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 /**
  * UploadHeader – page heading for upload views.

@@ -91,7 +91,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen relative bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 overflow-hidden">
+    <div className="min-h-screen relative bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800">
       {/* cursor follower */}
       <motion.div
         className="pointer-events-none fixed top-0 left-0 z-30 w-32 h-32 rounded-full bg-blue-500/20 dark:bg-blue-400/20 blur-xl"
@@ -100,7 +100,7 @@ export default function LandingPage() {
       />
 
       {/* Header */}
-      <header className="border-b bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
+      <header className="sticky top-0 z-50 border-b bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2 pl-1">
